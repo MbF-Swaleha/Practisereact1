@@ -1,0 +1,24 @@
+.Nav{
+   width:90%;
+   margin: 20px auto;
+   list-style-type: none;
+  
+
+}
+
+li{
+
+	float:left;
+    color: #000000;
+    display: inline; 
+    display: block;
+    padding: 32px 80px; 
+    background-color: #f3f3f3;
+	
+}
+
+.down{
+  text-align: center;
+  margin: 20px 30px;
+  padding: 200px; 
+}

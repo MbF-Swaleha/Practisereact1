@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
-import NameList from'./NameList.js';
+import NameList from './NameList.js';
+import AddList from './AddList.js';
 
 const names = [
   {
-              "id":1,
-                "name": "Sandy"
+              
+                "name": "Sandy",
+                //"id":1
              },
              {
-              "id":2,
-                "name": "Stuart"
+              
+                "name": "Stuart",
+                //"id":2
              },
              {
-              "id":3,
-                "name": "Ben"
+              
+                "name": "Ben",
+                //"id":3
              },
              {
-              "id":4,
-                "name": "Kerri"
+              
+                "name": "Kerri",
+                //"id":4
              },
              {
-              "id":5,
-                "name": "Laiqah"
+              
+                "name": "Laiqah",
+                //"id":5
              }
 
 ];
@@ -37,7 +43,9 @@ class App extends Component {
         names: JSON.parse(localStorage.getItem('names'))
       };
 
+      this.onAdd = this.onAdd.bind(this);
       this.onDelete = this.onDelete.bind(this);
+      this.onEditSubmit = this.onEditSubmit.bind(this);
     }
 
    componentWillMount() {   
@@ -51,24 +59,55 @@ class App extends Component {
     
    }
 
+   onAdd(name){
+     const names = this.getNames();
+
+     names.push({
+      name
+     }); 
+
+     this.setState({ names });
+   }
+
    onDelete (name){
-       console.log(name);
+      //console.log(name);
       const names = this.getNames();
 
       const filteredNames = names.filter(name => {
-        return name.name !== name;
+        return name.name.filteredNames !== name.filteredNames;
       });
 
-         console.log(filteredNames)
-      this.setState({names: filteredNames})
+         //console.log(filteredNames)
+      this.setState({ names: filteredNames })
    }
+     
+      onEditSubmit(name, originalName) {
+        //console.log(name);
+        let names = this.getNames();
+
+        names = names.map(name => {
+          if (name.name === originalName) {
+          name.name = name;
+        }
+
+        return name;
+
+        });
+
+        this.setState({names});
+      }
+
 	render() {
     return (
       <div className = "table">
        <h1> Name List </h1>
+
+       <AddList
+        onAdd={this.onAdd}
+       />
+
        <table>
-       <tr><td>ID</td>
-       {` | `}
+       <tr>
        <td>Name</td></tr>
       </table>
        {
@@ -78,6 +117,7 @@ class App extends Component {
              key={name.name}
              {...name}
             onDelete={this.onDelete}
+            onEditSubmit={this.onEditSubmit}
            />
          );
        })

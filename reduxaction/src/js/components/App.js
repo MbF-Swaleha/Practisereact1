@@ -4,10 +4,9 @@ require('../../scss/style.scss');
 
 const App = () => (
     <div>
-       <h2> First Data item: </h2>
-       <UserList />
+       <h2>  Data items: </h2>
        <hr/>
-       <h2> Second Data item: </h2>
+       <UserList />
     </div>
 
 	);

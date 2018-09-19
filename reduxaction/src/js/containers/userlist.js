@@ -8,7 +8,7 @@ class UserList extends Component{
 	createListItems() {
 		return this.props.users.map((user) => {
 			return (
-             <li key={user.id}>(user.userId) (user.id) (user.title) (user.body)</li>
+             <li key={user.id}>{user.userId} {user.id} {user.title} {user.body}</li>
 		);
 		});
 	}

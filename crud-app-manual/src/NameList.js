@@ -14,7 +14,7 @@ class NameList extends Component {
   }
 
   onDelete() {
-    const {onDelete, name} = this.props;
+    const { onDelete, name } = this.props;
     onDelete(name);
 
   }
@@ -51,8 +51,8 @@ class NameList extends Component {
          <tbody>
              <tr>
               <td>{name}</td>
-              <button onClick={this.onDelete}>Delete</button> 
-              <button onClick={this.onEdit}>Edit</button>               
+              <button onClick={this.onEdit}>Edit</button> 
+              <button onClick={this.onDelete}>Delete</button>                      
               </tr>
               </tbody>
             </table>

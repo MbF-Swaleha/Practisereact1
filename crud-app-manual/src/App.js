@@ -44,8 +44,9 @@ class App extends Component {
       };
 
       this.onAdd = this.onAdd.bind(this);
-      this.onDelete = this.onDelete.bind(this);
       this.onEditSubmit = this.onEditSubmit.bind(this);
+      this.onDelete = this.onDelete.bind(this);
+      
     }
 
    componentWillMount() {   
@@ -69,7 +70,7 @@ class App extends Component {
      this.setState({ names });
    }
 
-   onDelete (name){
+   onDelete (name) {
       //console.log(name);
       const names = this.getNames();
 
@@ -78,7 +79,7 @@ class App extends Component {
       });
 
          //console.log(filteredNames)
-      this.setState({ names: filteredNames })
+      this.setState({ names: filteredNames });
    }
      
       onEditSubmit(name, originalName) {
@@ -94,7 +95,7 @@ class App extends Component {
 
         });
 
-        this.setState({names});
+        this.setState({ names });
       }
 
 	render() {
